@@ -1,0 +1,30 @@
+:root {
+  --number-of-columns: 20;
+  --number-of-rows: 20;
+  --cell-size: 1.5em;
+  --picked-color: blue;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--number-of-columns), var(--cell-size));
+  grid-template-rows: repeat(var(--number-of-rows), var(--cell-size));
+  width: calc(var(--number-of-rows) * var(--cell-size));
+  height: calc(var(--number-of-columns) * var(--cell-size));
+}
+
+.cell {
+  border: 1px solid black;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.palette {
+  border: 1px solid black;
+  height: calc(var(--number-of-rows) * var(--cell-size));
+  width: 20%;
+}
