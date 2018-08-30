@@ -1,9 +1,9 @@
 const board = document.getElementById('board')
+const pen = document.getElementById('pen')
+const picker = document.getElementById('color')
 const cellSize = getCssVar("--cell-size")
 const numColumns = getCssVar("--number-of-columns")
 const numRows = getCssVar("--number-of-rows")
-const pen = document.getElementById('pen')
-const picker = document.getElementById('color')
 
 buildBoard(numColumns, numRows)
 setEventListeners()

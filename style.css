@@ -1,16 +1,18 @@
 :root {
-  --number-of-columns: 20;
-  --number-of-rows: 20;
+  --number-of-columns: 25;
+  --number-of-rows: 25;
   --cell-size: 1.5em;
-  --picked-color: blue;
+  --picked-color: #0000ff;
+  --board-width: calc(var(--number-of-rows) * var(--cell-size));
+  --board-height: calc(var(--number-of-columns) * var(--cell-size));
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(var(--number-of-columns), var(--cell-size));
   grid-template-rows: repeat(var(--number-of-rows), var(--cell-size));
-  width: calc(var(--number-of-rows) * var(--cell-size));
-  height: calc(var(--number-of-columns) * var(--cell-size));
+  width: var(--board-width);
+  height: var(--board-height);
 }
 
 .cell {
@@ -25,6 +27,13 @@
 
 .palette {
   border: 1px solid black;
-  height: calc(var(--number-of-rows) * var(--cell-size));
-  width: 20%;
+  height: calc(var(--board-height) * 0.5);
+  width: calc(var(--board-height) * 0.75);
+}
+
+.palette > input, .palette > label {
+  display: block;
+  margin: auto;
+  padding: 1em;
+  width: calc(var(--board-height) * 0.375)
 }
