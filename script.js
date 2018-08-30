@@ -1,9 +1,11 @@
 const board = document.getElementById('board')
 const pen = document.getElementById('pen')
 const picker = document.getElementById('color')
+const eraser = document.getElementById('eraser')
 const cellSize = getCssVar("--cell-size")
 const numColumns = getCssVar("--number-of-columns")
 const numRows = getCssVar("--number-of-rows")
+let savedColor = getCssVar("--picked-color")
 
 buildBoard(numColumns, numRows)
 setEventListeners()
@@ -22,6 +24,7 @@ function buildBoard(columns, rows) {
 function setEventListeners() {
   board.addEventListener("click", colorCell)
   picker.addEventListener("change", changeColor)
+  eraser.addEventListener("click", toggleEraser)
 }
 
 function changeColor(e) {
@@ -32,6 +35,16 @@ function colorCell(e) {
   let color = getCssVar("--picked-color")
   if (e.target.classList.contains('cell')) {
     e.target.style.setProperty("background-color", color)
+  }
+}
+
+function toggleEraser() {
+  let currentColor = getCssVar("--picked-color")
+  if (currentColor === '#ffffff') {
+    setCssVar("--picked-color", savedColor)
+  } else {
+    savedColor = currentColor
+    setCssVar("--picked-color", '#ffffff')
   }
 }
 

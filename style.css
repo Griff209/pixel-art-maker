@@ -31,7 +31,7 @@
   width: calc(var(--board-height) * 0.75);
 }
 
-.palette > input, .palette > label {
+.palette > * {
   display: block;
   margin: auto;
   padding: 1em;
