@@ -42,9 +42,11 @@ function toggleEraser() {
   let currentColor = getCssVar("--picked-color")
   if (currentColor === '#ffffff') {
     setCssVar("--picked-color", savedColor)
+    eraser.innerText = 'Drawing...'
   } else {
     savedColor = currentColor
     setCssVar("--picked-color", '#ffffff')
+    eraser.innerText = 'Erasing...'
   }
 }
 
